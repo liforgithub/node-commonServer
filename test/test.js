@@ -1,5 +1,5 @@
 var assert = require('assert');
-var config = require('../config');
+var config = require('../config/index');
 
 console.log('config.port=' + config.port);
 

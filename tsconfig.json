@@ -1,11 +1,9 @@
 {
     "compilerOptions": {
-        "target": "ES2017",
+        "target": "ES6",
         "module": "commonjs",
-        // "moduleResolution":"commonjs",
         "removeComments": false,
         "sourceMap": true,
-        // "outDir": "./dist/server",
         "watch": true,
         "alwaysStrict": true
     },
