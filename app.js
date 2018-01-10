@@ -21,9 +21,7 @@ const response_formatter = require('./middlewares/response_formatter');
 app.use(convert(bodyparser));
 app.use(convert(json()));
 app.use(convert(logger()));
-app.use(require('koa-static')(__dirname + '/public'));
-
-
+app.use(convert(require('koa-static')(__dirname + '/public')));
 
 app.use(views(__dirname + '/views', {
   extension: 'jade'
