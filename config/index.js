@@ -8,6 +8,6 @@ let index = {
     development: development_1.default,
     test: test_1.default,
     mysqlConfig: mysql_1.default
-}[process.env.NODE_ENV || 'development'];
+};
 exports.default = index;
 //# sourceMappingURL=index.js.map

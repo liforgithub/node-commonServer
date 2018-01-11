@@ -7,6 +7,6 @@ let index = {
     development: development_env,
     test: test_env,
     mysqlConfig: mysql
-}[process.env.NODE_ENV || 'development'];
+};
 
 export default index;

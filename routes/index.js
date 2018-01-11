@@ -8,10 +8,10 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-const koa_router_1 = require("koa-router");
-const index_1 = require("./api/index");
-const router = koa_router_1.default();
-router.use('/api', index_1.default.router(), index_1.default.allowedMethods());
+const koaRouter = require("koa-router");
+const api_1 = require("./api");
+const router = koaRouter();
+router.use('/api', api_1.default.routes(), api_1.default.allowedMethods());
 router.get('/', function (ctx, next) {
     return __awaiter(this, void 0, void 0, function* () {
         ctx.state = {

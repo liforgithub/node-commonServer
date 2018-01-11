@@ -14,13 +14,15 @@ const convert = require("koa-convert");
 const json = require("koa-json");
 const koaBodyparser = require("koa-bodyparser");
 const logger = require("koa-logger");
+const cors = require("koa-cors");
 const routes_1 = require("./routes");
 //log工具
 const log_util_1 = require("./utils/log_util");
-const response_formatter = require('./middlewares/response_formatter');
+const response_formatter_1 = require("./middlewares/response_formatter");
 const app = new Koa();
 const bodyparser = koaBodyparser();
 // middlewares
+app.use(cors());
 app.use(convert(bodyparser));
 app.use(convert(json()));
 app.use(convert(logger()));
@@ -49,7 +51,7 @@ app.use((ctx, next) => __awaiter(this, void 0, void 0, function* () {
 }));
 //添加格式化处理响应结果的中间件，在添加路由之前调用
 //仅对/api开头的url进行格式化处理
-app.use(response_formatter('^/api'));
+app.use(response_formatter_1.default('^/api'));
 app.use(routes_1.default.routes());
 // response
 app.on('error', (err, ctx) => {

@@ -4,17 +4,19 @@ import * as convert from 'koa-convert';
 import * as json from 'koa-json';
 import * as koaBodyparser from 'koa-bodyparser';
 import * as logger from 'koa-logger';
+import * as cors from 'koa-cors';
 
 import webRouter from './routes';
 //log工具
 import logUtil from './utils/log_util';
 
-const response_formatter = require('./middlewares/response_formatter');
+import response_formatter from './middlewares/response_formatter';
 
 const app = new Koa();
 const bodyparser = koaBodyparser();
 
 // middlewares
+app.use(cors());
 app.use(convert(bodyparser));
 app.use(convert(json()));
 app.use(convert(logger()));
@@ -53,7 +55,7 @@ app.use(response_formatter('^/api'));
 app.use(webRouter.routes());
 // response
 app.on('error', (err, ctx) => {
-    console.log(err)
+    console.log(err);
     logger.error('server error', err, ctx);
 });
 

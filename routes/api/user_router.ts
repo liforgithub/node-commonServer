@@ -1,9 +1,7 @@
-import koaRouter from 'koa-router';
+import * as koaRouter from 'koa-router';
+import bookController from "../../app/controllers/bookcontroller";
 const router = koaRouter();
 
-import user_controller from '../../app/controllers/user_controller';
-
-router.get('/getUser', user_controller.getUser);
-router.post('/registerUser', user_controller.registerUser);
+router.get('/getBookList', bookController.queryBookList);
 
 export default router;

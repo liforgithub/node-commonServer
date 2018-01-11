@@ -13,6 +13,7 @@ var config = require('../config/index');
 
 console.log("process.env.NODE_ENV=" + process.env.NODE_ENV);
 
+config = config.default[process.env.NODE_ENV || 'development'];
 
 var fs = require('fs');
 var logConfig = require('../config/log_config');
